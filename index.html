@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#16834A">
+  <meta name="description" content="PesaSmart AI helps individuals and small businesses learn about budgeting, saving, and managing money.">
+  <link rel="manifest" href="manifest.json">
+  <title>PesaSmart AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f8f5;
+      color: #172b22;
+      margin: 0;
+      padding: 24px;
+      text-align: center;
+    }
+    main {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 28px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 4px 18px #00000012;
+    }
+    h1 { color: #16834A; }
+    p { line-height: 1.6; }
+    a.button {
+      display: inline-block;
+      background: #16834A;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 8px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>💚 PesaSmart AI</h1>
+    <p>Your money, managed smarter.</p>
+    <p>Learn to budget, save, and understand business profit using Kenyan shillings.</p>
+    <a class="button" href="#budget">Plan your budget</a>
+    <section id="budget">
+      <h2>Budget calculator</h2>
+      <p>Enter your monthly income and expenses.</p>
+      <label for="income">Income (KSh)</label><br>
+      <input id="income" type="number" min="0"><br><br>
+      <label for="expenses">Expenses (KSh)</label><br>
+      <input id="expenses" type="number" min="0"><br><br>
+      <button onclick="calculate()">Calculate balance</button>
+      <p id="result" aria-live="polite"></p>
+    </section>
+  </main>
+  <script>
+    function calculate() {
+      const income = Number(document.getElementById('income').value);
+      const expenses = Number(document.getElementById('expenses').value);
+      if (income < 0 || expenses < 0 ||
+          document.getElementById('income').value === '' ||
+          document.getElementById('expenses').value === '') {
+        document.getElementById('result').textContent =
+          'Please enter valid amounts.';
+        return;
+      }
+      const balance = income - expenses;
+      document.getElementById('result').textContent =
+        'Your remaining balance is KSh ' + balance.toLocaleString('en-KE');
+    }
+  </script>
+</body>
+</html>
