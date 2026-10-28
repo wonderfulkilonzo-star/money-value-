@@ -1,0 +1,10 @@
+{
+  "name": "PesaSmart AI",
+  "short_name": "PesaSmart",
+  "description": "A financial education and money management app.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16834A"
+}
